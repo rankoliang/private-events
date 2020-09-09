@@ -11,5 +11,20 @@
 
   <body>
     <%= yield %>
+    <hr>
+    <% if logged_in? %>
+      Signed in as <%= link_to current_user.name, current_user %> | 
+    <%= link_to 'Log out', logout_path %>
+    <% else %>
+      <%= link_to 'Sign up', signup_path %> | <%= link_to 'Log in', login_path %>
+    <% end %>
+    <hr>
+    <% if Rails.env.development? %>
+      <%= debug(params) %>
+      <%= debug(current_user) %>
+      Session user_id: <%= session[:user_id] %>
+      <br>
+      Logged in? <%= logged_in? %>
+    <% end %>
   </body>
 </html>
