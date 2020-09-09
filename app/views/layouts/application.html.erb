@@ -10,9 +10,9 @@
   </head>
 
   <body>
-    <%= yield %>
-    <hr>
     <%= render "layouts/navigation" %>
+    <hr>
+    <%= yield %>
     <hr>
     <% if Rails.env.development? %>
       <%= debug(params) %>

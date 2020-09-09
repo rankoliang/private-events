@@ -5,3 +5,28 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+100.times do
+  User.create(name: Faker::Name.unique.name)
+end
+
+users = User.all
+
+users.each do |user|
+  4.times do
+    user.created_events.build(title: Faker::Lorem.word,
+                              description: Faker::Lorem.sentence,
+                              date: Faker::Date.backward(days: 1000),
+                              location: Faker::Address.street_address)
+  end
+  user.save
+end
+
+events = Event.all
+
+users.each do |user|
+  10.times do
+    user.attended_events.build(event: events.sample)
+  end
+  user.save
+end
