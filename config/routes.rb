@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'users#new'
 
   resources 'users', only: %i[new show create]
+  resources 'events', only: %i[index new create show]
 
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'
