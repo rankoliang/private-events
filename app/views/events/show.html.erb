@@ -1,2 +1,9 @@
 <h1><%= @event.title %></h1>
 <p>Created by <%= link_to @event.creator.name, @event.creator %></p>
+
+<h2>Attendees</h2>
+<ul>
+  <% @event.attendees.each do |attendee| %>
+    <li><%= link_to attendee.name, attendee %></li>
+  <% end %>
+</ul>

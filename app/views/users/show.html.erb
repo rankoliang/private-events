@@ -1,7 +1,18 @@
 <%= @user.name %>'s Profile Page
 
+<h2>Created Events</h2>
 <ul>
 <% @user.created_events.each do |event| %>
   <li><%= link_to event.title, event %> - <%= event.description %></li>
 <% end %>
+</ul>
+
+<h2>Attending Events</h2>
+<ul>
+  <% @user.events.each do |attending_event| %>
+    <li>
+    <%= link_to attending_event.title, attending_event %>
+      - <%= attending_event.description %>
+    </li>
+  <% end %>
 </ul>
