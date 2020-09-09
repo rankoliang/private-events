@@ -1,2 +1,2 @@
 <h1><%= @event.title %></h1>
-<p>Created by <%= @event.creator.name %></p>
+<p>Created by <%= link_to @event.creator.name, @event.creator %></p>
