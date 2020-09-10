@@ -7,3 +7,7 @@
     <li><%= link_to attendee.name, attendee %></li>
   <% end %>
 </ul>
+
+<% if current_user %>
+  <%= link_to 'Attend event', event_attend_path(@event), method: :post%>
+<% end %>
