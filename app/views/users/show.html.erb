@@ -10,22 +10,14 @@
 <h2>Previously attended events</h2>
 <ul>
   <% @attending_events.where('date <= ?', Date.today).order('date desc').each do |attending_event| %>
-  <li>
-    <%= attending_event.date.strftime("%d/%d/%Y") %> - 
-    <%= link_to attending_event.title, attending_event %>
-      - <%= attending_event.description %>
-  </li>
+    <%= render attending_event %>
   <% end %>
 </ul>
 
 <h2>Upcoming Events</h2>
 <ul>
   <% @attending_events.where('date > ?', Date.today).order(:date).each do |attending_event| %>
-  <li>
-    <%= attending_event.date.strftime("%d/%d/%Y") %> - 
-    <%= link_to attending_event.title, attending_event %>
-      - <%= attending_event.description %>
-  </li>
+    <%= render attending_event %>
   <% end %>
 </ul>
 

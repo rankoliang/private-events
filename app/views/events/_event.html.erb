@@ -1,1 +1,5 @@
-<li><%= link_to event.title, event %> - <%= event.description %></li>
+<li>
+  <%= event.date.strftime("%m/%d/%Y") %> - 
+  <%= link_to event.title, event %>
+    - <%= event.description %>
+</li>

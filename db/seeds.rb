@@ -31,7 +31,7 @@ end
 events = Event.all
 
 users.each do |user|
-  10.times do
+  30.times do
     user.attended_events.build(event: events.sample)
   end
   user.save
