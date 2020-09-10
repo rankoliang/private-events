@@ -10,14 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_09_051108) do
+ActiveRecord::Schema.define(version: 2020_09_10_071544) do
 
   create_table "attended_events", id: false, force: :cascade do |t|
     t.integer "event_id", null: false
     t.integer "attendee_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "accepted", default: false
+    t.index ["accepted"], name: "index_attended_events_on_accepted"
     t.index ["attendee_id"], name: "index_attended_events_on_attendee_id"
+    t.index ["event_id", "attendee_id"], name: "by_attendee_and_event", unique: true
     t.index ["event_id"], name: "index_attended_events_on_event_id"
   end
 
