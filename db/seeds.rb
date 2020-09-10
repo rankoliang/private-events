@@ -19,6 +19,12 @@ users.each do |user|
                               date: Faker::Date.backward(days: 1000),
                               location: Faker::Address.street_address)
   end
+  4.times do
+    user.created_events.build(title: Faker::Lorem.word,
+                              description: Faker::Lorem.sentence,
+                              date: Faker::Date.forward(days: 1000),
+                              location: Faker::Address.street_address)
+  end
   user.save
 end
 
