@@ -1,0 +1,7 @@
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <%= link_to user.name, user %> - <%= link_to 'Invite', event_invite_path(user_id: user.id), method: :post %>
+    </li>
+  <% end %>
+</ul>

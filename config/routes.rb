@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources 'users', only: %i[new show create]
   resources 'events', only: %i[index new create show] do
     post '/attend', to: 'attending_events#create'
+    get '/invite', to: 'attending_events#new'
+    post '/invite', to: 'attending_events#create'
   end
 
   get '/signup', to: 'users#new'
