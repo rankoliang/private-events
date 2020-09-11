@@ -6,3 +6,7 @@ Users will be able to manage events
   invite users to and attend events.
 Full project details can be found
 [here](https://www.theodinproject.com/lessons/associations).
+
+## Todo
+- Toggle invited user's accepted status when attending event
+- Show user's invited events on their show page
